@@ -1,0 +1,61 @@
+<!DOCTYPE html <html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Balkon Test App</title>
+  <link href="/user_style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+  <div class="center">
+    <h2>GENERAL USER INFORMATION</h2>
+    {{#if message}}<p>{{message}} </p> {{/if}}
+    {{#if logingTime}}<p>Login Time: {{logingTime}} </p> {{/if}}
+
+    <table>
+      <tr>
+        <th>User Name</th>
+        <th>Like User</th>
+        <th>Dislike User</th>
+      </tr>
+      {{#each users}}
+      <tr>
+        <td>{{this}}</td>
+        <td <input type="checkbox" id="allcb" onclick="uncheckall()" />
+        <td type="checkbox" value="">
+      </tr>
+      {{/each}}
+
+    </table>
+
+  </div>
+
+  <div class="customDiv">
+    <!-- Login Form -->
+    <form action="/auth/user" method="POST">
+      <h2>Restart Password</h2>
+      <input type="text" id="password" class="fadeIn second" name="email" placeholder="email">
+      <input type="password" id="password" class="fadeIn second" name="OldPassword" placeholder="Old Password">
+      <input type="password" id="password" class="fadeIn third" name="NewPassword" placeholder="New Password">
+      <input type="submit" class="fadeIn fourth" value="Change Password">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="">
+      {{#if errorMessage}}
+      <p>{{errorMessage}}</p>
+      {{/if}}
+      {{#if confirmMessage}}
+      <p>{{confirmMessage}}</p>
+      {{/if}}
+    </div>
+
+  </div>
+
+
+
+
+</body>
+
+</html>
